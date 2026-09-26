@@ -1,7 +1,7 @@
 import { Service, computed, signal } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError, tap, throwError } from 'rxjs';
-import { Field, FieldRequest } from '@field/interfaces/field';
+import { Field, FieldRequest, PublicField } from '@field/interfaces/field';
 import { BaseHttpService } from '@shared/data-access/base-http.service';
 
 @Service()
@@ -19,19 +19,15 @@ export class FieldService extends BaseHttpService {
   totalFields = computed(() => this.fieldsSignal().length);
   activeFields = computed(() => this.fieldsSignal().filter(f => f.active));
 
-  getFieldById(id: number): Observable<Field> {
-    return this.http.get<Field>(`${this.ENDPOINT}/${id}`);
+  getFieldsByVenueId(venueId: number): Observable<PublicField[]> {
+    return this.http.get<PublicField[]>(`${this.ENDPOINT}/p/${venueId}`);
   }
 
-  getFieldsByVenueId(venueId: number): Observable<Field[]> {
-    return this.http.get<Field[]>(`${this.ENDPOINT}/venue/${venueId}`);
-  }
-
-  getAllFieldsByVenueId(venueId: number): Observable<Field[]> {
+  getAllFieldsByVenueId(): Observable<Field[]> {
     this.loadingSignal.set(true);
     this.errorSignal.set(null);
 
-    return this.http.get<Field[]>(`${this.ENDPOINT}/all/venue/${venueId}`).pipe(
+    return this.http.get<Field[]>(`${this.ENDPOINT}`).pipe(
       tap((fields) => {
         this.fieldsSignal.set(fields);
         this.loadingSignal.set(false);

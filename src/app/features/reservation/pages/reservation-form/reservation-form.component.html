@@ -2,382 +2,376 @@
   class="bg-white border-b border-gray-200 sticky top-0 z-30 py-4 sm:py-6 shadow-sm min-h-[183px] flex flex-col items-center justify-center">
   <div class="max-w-4xl mx-auto px-3 sm:px-4 w-full">
     @if (loading()) {
-      <div class="text-center flex flex-col items-center justify-center w-full">
-        <div class="h-8 sm:h-10 bg-gray-200 rounded w-2/3 mb-2 shimmer"></div>
-        <div class="h-4 sm:h-6 bg-gray-200 rounded w-1/3 mb-2 shimmer"></div>
-        <div class="h-3 sm:h-5 bg-gray-200 rounded w-1/2 mb-3 shimmer"></div>
-        <div class="h-8 bg-gray-200 rounded-lg w-24 shimmer"></div>
-      </div>
+    <div class="text-center flex flex-col items-center justify-center w-full">
+      <div class="h-8 sm:h-10 bg-gray-200 rounded w-2/3 mb-2 shimmer"></div>
+      <div class="h-4 sm:h-6 bg-gray-200 rounded w-1/3 mb-2 shimmer"></div>
+      <div class="h-3 sm:h-5 bg-gray-200 rounded w-1/2 mb-3 shimmer"></div>
+      <div class="h-8 bg-gray-200 rounded-lg w-24 shimmer"></div>
+    </div>
     } @else {
-      <div class="flex-1 text-center flex flex-col items-center justify-center">
-        <h1
-          class="text-4xl sm:text-5xl font-extrabold text-primary leading-tight tracking-tight mb-0.5 sm:mb-1 drop-shadow-sm">
-          {{ venue.name }}
-        </h1>
-        <p class="text-sm sm:text-lg text-gray-700 font-medium mb-0.5">{{ venue.city }}</p>
-        <p class="text-xs sm:text-base text-gray-600 font-normal mb-1">{{ venue.address }}</p>
-        <div class="mt-2">
-          <a routerLink="/canchas"
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-300 bg-white text-gray-700 font-medium hover:border-primary hover:text-primary hover:shadow-md transition-all duration-300">
+    <div class="flex-1 text-center flex flex-col items-center justify-center">
+      <h1
+        class="text-4xl sm:text-5xl font-extrabold text-primary leading-tight tracking-tight mb-0.5 sm:mb-1 drop-shadow-sm">
+        {{ venue.name }}
+      </h1>
+      <p class="text-sm sm:text-lg text-gray-700 font-medium mb-0.5">{{ venue.city }}</p>
+      <p class="text-xs sm:text-base text-gray-600 font-normal mb-1">{{ venue.address }}</p>
+      <div class="mt-2">
+        <a routerLink="/canchas"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-300 bg-white text-gray-700 font-medium hover:border-primary hover:text-primary hover:shadow-md transition-all duration-300">
 
-            <i class="fa-solid fa-arrow-left"></i>
-            <span>Volver al listado de canchas</span>
-          </a>
-        </div>
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Volver al listado de canchas</span>
+        </a>
       </div>
+    </div>
     }
   </div>
 </header>
 
 @if (successReservation && reservationData) {
-  <div class="animate-fade-in max-w-xl mx-auto py-12 px-3">
-    <div class="bg-gray-50 border border-gray-200 p-6 rounded-lg text-center shadow-sm space-y-4">
-      <div class="flex justify-center mb-3">
-        <div class="p-3 bg-gray-100 rounded-full">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="lucide lucide-circle-check-big w-8 h-8 text-primary">
-            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-            <path d="m9 11 3 3L22 4"></path>
-          </svg>
-        </div>
-      </div>
-      <div>
-        <h2 class="text-xl font-bold text-primary mb-2">¡Tu reserva fue agendada con éxito!</h2>
-        <p class="text-primary text-base">
-          Te esperamos el
-          <span class="font-semibold capitalize">
-            {{ reservationData.reservationDate | customDate }}
-          </span>
-          a las
-          <span class="font-bold text-lg">{{ reservationData.startTime | timeFormat }}</span>
-        </p>
-      </div>
-      <div class="bg-white border border-gray-300 rounded-lg p-4">
-        <p class="text-sm font-medium text-primary mb-2">Código de reserva</p>
-        <p class="text-2xl font-mono text-primary font-bold tracking-wider">
-          {{ reservationData.code }}
-        </p>
-      </div>
-      <div class="bg-gray-50 border border-gray-200 rounded-lg p-3">
-        <p class="text-sm text-gray-800">
-          <span class="font-medium">Tip:</span>
-          Guardá este código para cancelar tu reserva si lo necesitás. Te recomendamos hacer una
-          captura de pantalla 📸
-        </p>
+<div class="animate-fade-in max-w-xl mx-auto py-12 px-3">
+  <div class="bg-gray-50 border border-gray-200 p-6 rounded-lg text-center shadow-sm space-y-4">
+    <div class="flex justify-center mb-3">
+      <div class="p-3 bg-gray-100 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-circle-check-big w-8 h-8 text-primary">
+          <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+          <path d="m9 11 3 3L22 4"></path>
+        </svg>
       </div>
     </div>
+    <div>
+      <h2 class="text-xl font-bold text-primary mb-2">¡Tu reserva fue agendada con éxito!</h2>
+      <p class="text-primary text-base">
+        Te esperamos el
+        <span class="font-semibold capitalize">
+          {{ reservationData.reservationDate | customDate }}
+        </span>
+        a las
+        <span class="font-bold text-lg">{{ reservationData.startTime | timeFormat }}</span>
+      </p>
+    </div>
+    <div class="bg-white border border-gray-300 rounded-lg p-4">
+      <p class="text-sm font-medium text-primary mb-2">Código de reserva</p>
+      <p class="text-2xl font-mono text-primary font-bold tracking-wider">
+        {{ reservationData.code }}
+      </p>
+    </div>
+    <div class="bg-gray-50 border border-gray-200 rounded-lg p-3">
+      <p class="text-sm text-gray-800">
+        <span class="font-medium">Tip:</span>
+        Guardá este código para cancelar tu reserva si lo necesitás. Te recomendamos hacer una
+        captura de pantalla 📸
+      </p>
+    </div>
   </div>
+</div>
 } @else {
-  <main class="max-w-5xl mx-auto px-1 sm:px-4 py-4 sm:py-8 space-y-8">
+<main class="max-w-5xl mx-auto px-1 sm:px-4 py-4 sm:py-8 space-y-8">
 
-    <!-- Paso 1: Sección para elegir día -->
-    <section class="bg-white rounded-lg border border-gray-200 p-4 sm:p-6 shadow-sm motion-preset-slide-down">
-      <header class="flex items-center gap-2">
+  <!-- Paso 1: Sección para elegir día -->
+  <section class="bg-white rounded-lg border border-gray-200 p-4 sm:p-6 shadow-sm motion-preset-slide-down">
+    <header class="flex items-center gap-2">
+      <div class="p-2 rounded-lg bg-gray-100">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="w-4 h-4 sm:w-5 sm:h-5 text-primary">
+          <path d="M8 2v4"></path>
+          <path d="M16 2v4"></path>
+          <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+          <path d="M3 10h18"></path>
+        </svg>
+      </div>
+      <div>
+        <h2 class="text-base sm:text-lg font-semibold text-black">Paso 1: Elige un día</h2>
+      </div>
+    </header>
+    <div class="my-5">
+      <div
+        class="flex overflow-x-auto gap-3 pb-2 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-neutral-700/10 [&::-webkit-scrollbar-thumb]:bg-neutral-500 [&::-webkit-scrollbar-thumb]:rounded-full">
+        @for (day of next20Days; track $index) {
+        <button (click)="selectDate(day)"
+          class="flex flex-col items-center p-3 sm:p-6 rounded-lg border transition-all min-w-36 select-none" [ngClass]="
+                selectedDate()?.getTime() === day.date.getTime()
+                  ? 'bg-primary text-gray-200 border-primary'
+                  : 'bg-gray-100 text-gray-700 border-gray-500 hover:bg-primary/10 hover:border-primary hover:text-gray-800'
+              ">
+          <span class="text-sm sm:text-lg capitalize text-center">{{ day.weekday }}</span>
+          <span class="text-3xl sm:text-4xl font-bold text-center">{{ day.dayNumber }}</span>
+          <span class="text-sm sm:text-lg capitalize text-center">{{ day.monthName }}</span>
+        </button>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Paso 2: Sección para elegir cancha -->
+  @if (selectedDate() && fields().length) {
+  <section class="bg-white rounded-lg border border-gray-200 p-4 sm:p-6 shadow-sm motion-preset-slide-down">
+    <header class="flex items-center gap-2 mb-4">
+      <div class="p-2 rounded-lg bg-gray-100">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="w-4 h-4 sm:w-5 sm:h-5 text-primary">
+          <path d="M4 6h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 18h16"></path>
+        </svg>
+      </div>
+      <h2 class="text-base sm:text-lg font-semibold text-black">Paso 2: Elige la cancha</h2>
+    </header>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+      @for (field of fields(); track field) {
+      <button (click)="selectField(field)" class="px-4 py-3 rounded-lg border transition-all select-none text-left"
+        [ngClass]="
+                  selectedField()?.id === field.id
+                    ? 'bg-primary text-gray-200 border-primary'
+                    : 'bg-gray-100 text-gray-700 border-gray-500 hover:bg-primary/10 hover:border-primary hover:text-gray-800'
+              ">
+        <div class="font-semibold">{{ field.name }}</div>
+        <div class="text-xs sm:text-sm opacity-80">
+          {{ field.fieldType | fieldType }}
+        </div>
+        <div class="text-xs sm:text-sm opacity-90">
+          Valor por hora: {{ field.hourlyRate | moneyFormat }}
+        </div>
+      </button>
+      }
+    </div>
+  </section>
+  }
+
+  <!-- Paso 3: Sección para elegir la duración -->
+  @if (selectedDate() && selectedField()) {
+  <section class="bg-white rounded-lg border border-gray-200 p-4 sm:p-6 shadow-sm motion-preset-slide-down">
+    <header class="flex items-center gap-2 mb-4">
+      <div class="p-2 rounded-lg bg-gray-100">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="w-4 h-4 sm:w-5 sm:h-5 text-primary">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M5 13a7 7 0 1 0 14 0a7 7 0 0 0 -14 0z" />
+          <path d="M14.5 10.5l-2.5 2.5" />
+          <path d="M17 8l1 -1" />
+          <path d="M14 3h-4" />
+        </svg>
+      </div>
+      <h2 class="text-base sm:text-lg font-semibold text-black">Paso 3: Elige la duración</h2>
+    </header>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+      @for (d of durations; track d) {
+      <button (click)="getAvailableHours(d.minutes, d.enum)"
+        class="px-4 py-2 rounded-lg border transition-all select-none" [ngClass]="
+            selectedDurationEnum() === d.enum
+              ? 'bg-primary text-gray-200 border-primary'
+              : 'bg-gray-100 text-gray-700 border-gray-500 hover:bg-primary/10 hover:border-primary hover:text-gray-800'
+          ">
+        {{ d.label }}
+      </button>
+      }
+    </div>
+  </section>
+  }
+
+  <!-- Paso 4: Sección para elegir la hora de inicio -->
+  @if (selectedMinutes()) {
+  <section class="bg-white rounded-lg border border-gray-200 p-4 sm:p-6 shadow-sm motion-preset-slide-down">
+    <header class="flex items-center justify-between gap-2 mb-4">
+      <div class="flex items-center gap-2">
         <div class="p-2 rounded-lg bg-gray-100">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             class="w-4 h-4 sm:w-5 sm:h-5 text-primary">
-            <path d="M8 2v4"></path>
-            <path d="M16 2v4"></path>
-            <rect width="18" height="18" x="3" y="4" rx="2"></rect>
-            <path d="M3 10h18"></path>
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+            <path d="M12 12l-2 3" />
+            <path d="M12 7v5" />
           </svg>
         </div>
-        <div>
-          <h2 class="text-base sm:text-lg font-semibold text-black">Paso 1: Elige un día</h2>
-        </div>
-      </header>
-      <div class="my-5">
-        <div
-          class="flex overflow-x-auto gap-3 pb-2 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-neutral-700/10 [&::-webkit-scrollbar-thumb]:bg-neutral-500 [&::-webkit-scrollbar-thumb]:rounded-full">
-          @for (day of next20Days; track $index) {
-            <button (click)="selectDate(day)"
-          class="flex flex-col items-center p-3 sm:p-6 rounded-lg border transition-all min-w-36 select-none" [ngClass]="
-                selectedDate?.getTime() === day.date.getTime()
-                  ? 'bg-primary text-gray-200 border-primary'
-                  : 'bg-gray-100 text-gray-700 border-gray-500 hover:bg-primary/10 hover:border-primary hover:text-gray-800'
-              ">
-              <span class="text-sm sm:text-lg capitalize text-center">{{ day.weekday }}</span>
-              <span class="text-3xl sm:text-4xl font-bold text-center">{{ day.dayNumber }}</span>
-              <span class="text-sm sm:text-lg capitalize text-center">{{ day.monthName }}</span>
-            </button>
-          }
+        <h2 class="text-base sm:text-lg font-semibold text-black">
+          Paso 4: Elige la hora de inicio
+        </h2>
+      </div>
+      <div class="hidden sm:block">
+        <div class="text-xs text-white bg-secondary px-2 py-1 rounded">
+          {{ availableStartTimes().length }} horarios libres
         </div>
       </div>
-    </section>
-
-    <!-- Paso 2: Sección para elegir cancha -->
-    @if (selectedDate && fields.length) {
-      <section
-        class="bg-white rounded-lg border border-gray-200 p-4 sm:p-6 shadow-sm motion-preset-slide-down">
-        <header class="flex items-center gap-2 mb-4">
-          <div class="p-2 rounded-lg bg-gray-100">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              class="w-4 h-4 sm:w-5 sm:h-5 text-primary">
-              <path d="M4 6h16"></path>
-              <path d="M4 12h16"></path>
-              <path d="M4 18h16"></path>
-            </svg>
-          </div>
-          <h2 class="text-base sm:text-lg font-semibold text-black">Paso 2: Elige la cancha</h2>
-        </header>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-          @for (field of fields; track field) {
-            <button (click)="selectField(field)"
-        class="px-4 py-3 rounded-lg border transition-all select-none text-left" [ngClass]="
-            selectedField?.id === field.id
-              ? 'bg-primary text-gray-200 border-primary'
-              : 'bg-gray-100 text-gray-700 border-gray-500 hover:bg-primary/10 hover:border-primary hover:text-gray-800'
-          ">
-              <div class="font-semibold">{{ field.name }}</div>
-              <div class="text-xs sm:text-sm opacity-80">
-                {{ field.fieldType | fieldType }}
-              </div>
-              <div class="text-xs sm:text-sm opacity-90">
-                Valor por hora: {{ field.hourlyRate | moneyFormat }}
-              </div>
-            </button>
-          }
-        </div>
-      </section>
-    }
-
-    <!-- Paso 3: Sección para elegir la duración -->
-    @if (selectedDate && selectedField) {
-      <section
-        class="bg-white rounded-lg border border-gray-200 p-4 sm:p-6 shadow-sm motion-preset-slide-down">
-        <header class="flex items-center gap-2 mb-4">
-          <div class="p-2 rounded-lg bg-gray-100">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              class="w-4 h-4 sm:w-5 sm:h-5 text-primary">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M5 13a7 7 0 1 0 14 0a7 7 0 0 0 -14 0z" />
-              <path d="M14.5 10.5l-2.5 2.5" />
-              <path d="M17 8l1 -1" />
-              <path d="M14 3h-4" />
-            </svg>
-          </div>
-          <h2 class="text-base sm:text-lg font-semibold text-black">Paso 3: Elige la duración</h2>
-        </header>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-          @for (d of durations; track d) {
-            <button (click)="getAvailableHours(d.minutes, d.enum)"
-        class="px-4 py-2 rounded-lg border transition-all select-none" [ngClass]="
-            selectedDurationEnum === d.enum
-              ? 'bg-primary text-gray-200 border-primary'
-              : 'bg-gray-100 text-gray-700 border-gray-500 hover:bg-primary/10 hover:border-primary hover:text-gray-800'
-          ">
-              {{ d.label }}
-            </button>
-          }
-        </div>
-      </section>
-    }
-
-    <!-- Paso 4: Sección para elegir la hora de inicio -->
-    @if (selectedMinutes) {
-      <section
-        class="bg-white rounded-lg border border-gray-200 p-4 sm:p-6 shadow-sm motion-preset-slide-down">
-        <header class="flex items-center justify-between gap-2 mb-4">
-          <div class="flex items-center gap-2">
-            <div class="p-2 rounded-lg bg-gray-100">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="w-4 h-4 sm:w-5 sm:h-5 text-primary">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                <path d="M12 12l-2 3" />
-                <path d="M12 7v5" />
-              </svg>
-            </div>
-            <h2 class="text-base sm:text-lg font-semibold text-black">
-              Paso 4: Elige la hora de inicio
-            </h2>
-          </div>
-          <div class="hidden sm:block">
-            <div class="text-xs text-white bg-secondary px-2 py-1 rounded">
-              {{ availableStartTimes.length }} horarios libres
-            </div>
-          </div>
-        </header>
-        <div
-          class="relative max-h-[300px] scrollbar-visible overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 pr-2 my-2">
-          @if (loadingHours()) {
-            <div class="flex justify-center items-center py-16">
-              <svg class="animate-spin h-10 w-10 text-black" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
-              </svg>
-              <span class="ml-3 text-primary font-medium">Cargando horas disponibles…</span>
-            </div>
-          } @else {
-            @if (availableStartTimes.length) {
-              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
-                @for (time of availableStartTimes; track time) {
-                  <button (click)="selectedStartTime = time"
-          class="px-4 py-2 border rounded-lg" [ngClass]="
-                  selectedStartTime === time
+    </header>
+    <div
+      class="relative max-h-[300px] scrollbar-visible overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 pr-2 my-2">
+      @if (loadingHours()) {
+      <div class="flex justify-center items-center py-16">
+        <svg class="animate-spin h-10 w-10 text-black" xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+        </svg>
+        <span class="ml-3 text-primary font-medium">Cargando horas disponibles…</span>
+      </div>
+      } @else {
+      @if (availableStartTimes().length) {
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+        @for (time of availableStartTimes(); track time) {
+        <button (click)="selectedStartTime.set(time)" class="px-4 py-2 border rounded-lg" [ngClass]="
+                  selectedStartTime() === time
                     ? 'bg-primary text-gray-200 border-primary'
                     : 'bg-gray-100 text-gray-700 border-gray-500 hover:bg-primary/10 hover:border-primary hover:text-gray-800'
                 ">
-                    {{ time | timeFormat }}
-                  </button>
-                }
-              </div>
-            } @else {
-              <div class="text-center">
-                <div class="flex justify-center mb-4 sm:mb-6">
-                  <div
-                    class="p-3 sm:p-4 lg:p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-full text-2xl sm:text-3xl lg:text-4xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="text-primary w-10 h-10">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                      <path d="M12 9v4" />
-                      <path d="M12 16v.01" />
-                    </svg>
-                  </div>
-                </div>
-                <h3 class="text-base sm:text-lg lg:text-xl font-bold text-black mb-2 sm:mb-3">
-                  ¡Sin horas disponibles!
-                </h3>
-                <p class="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base lg:text-lg leading-relaxed max-w-md mx-auto">
-                  Puedes probar reduciendo el tiempo de duración de la reserva o reservar para otra
-                  fecha.
-                </p>
-              </div>
-            }
-          }
-        </div>
-      </section>
-    }
-
-    <!-- Paso 5: Datos del usuario -->
-    @if (selectedStartTime) {
-      <section
-        class="bg-white rounded-lg border border-gray-200 p-4 sm:p-6 shadow-sm motion-preset-slide-down">
-        <header class="flex items-center gap-2 mb-3 sm:mb-4">
-          <div class="p-2 bg-gray-50 rounded-lg">
+          {{ time | timeFormat }}
+        </button>
+        }
+      </div>
+      } @else {
+      <div class="text-center">
+        <div class="flex justify-center mb-4 sm:mb-6">
+          <div
+            class="p-3 sm:p-4 lg:p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-full text-2xl sm:text-3xl lg:text-4xl">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              class="lucide lucide-circle-check w-4 h-4 sm:w-5 sm:h-5 text-primary">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="m9 12 2 2 4-4"></path>
+              class="text-primary w-10 h-10">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+              <path d="M12 9v4" />
+              <path d="M12 16v.01" />
             </svg>
           </div>
-          <div>
-            <h2 class="text-base sm:text-lg font-semibold text-black">
-              Paso 5: Confirma tu reserva
-            </h2>
-            <p class="text-xs sm:text-sm text-gray-600">
-              Solo faltan tus datos para completar la reserva
-            </p>
-          </div>
-        </header>
-        <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1" for="customerName">
-                Nombre completo
-              </label>
-              <input formControlName="customerName" type="text" required placeholder="Ej: Juan Pérez"
-                class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-black" />
-                @if (reservationForm.get('customerName')?.invalid && reservationForm.get('customerName')?.touched) {
-                  <div
-                    class="text-red-500 text-xs mt-1">
-                    Ingresa un nombre válido
-                  </div>
-                }
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1" for="cellphone">
-                  Número de celular
-                </label>
-                <input formControlName="cellphone" type="number" inputmode="numeric" maxlength="10"
-                  placeholder="Ej: 3109328434"
-                  class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-black" />
-                  @if (
-                    reservationForm.get('cellphone')?.invalid &&
-                    reservationForm.get('cellphone')?.touched
-                    ) {
-                    <div class="text-red-500 text-xs mt-1">
-                      Ingresa un celular válido de 10 dígitos
-                    </div>
-                  }
-                </div>
-              </div>
-              <div class="mt-6">
-                <button type="submit"
-                  class="px-6 py-3 bg-primary hover:bg-primary/90 text-white disabled:opacity-50 w-full text-base font-medium rounded-lg transition-colors duration-300">
-                  @if (loadingCreateReservation()) {
-                    <app-loading-text-component [text]="'Creando reserva'" />
-                  } @else {
-                    Confirmar reserva
-                  }
-                </button>
-              </div>
-            </form>
-          </section>
-        }
+        </div>
+        <h3 class="text-base sm:text-lg lg:text-xl font-bold text-black mb-2 sm:mb-3">
+          ¡Sin horas disponibles!
+        </h3>
+        <p class="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base lg:text-lg leading-relaxed max-w-md mx-auto">
+          Puedes probar reduciendo el tiempo de duración de la reserva o reservar para otra
+          fecha.
+        </p>
+      </div>
+      }
+      }
+    </div>
+  </section>
+  }
 
-        @if (selectedStartTime) {
-          <div class="bg-yellow-50 border border-gray-200 rounded-lg p-3 sm:p-4">
-            <div class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-triangle-alert w-4 h-4 sm:w-5 sm:h-5 text-black flex-shrink-0 mt-0.5">
-                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path>
-                <path d="M12 9v4"></path>
-                <path d="M12 17h.01"></path>
-              </svg>
-              <div>
-                <h3 class="font-medium text-black mb-1 text-sm sm:text-base">
-                  Importante sobre tu reserva
-                </h3>
-                <div class="space-y-1 text-xs sm:text-sm text-gray-700">
-                  <p>
-                    •
-                    <strong>Puntualidad:</strong>
-                    Llegá a tiempo para aprovechar tu reserva completa
-                  </p>
-                  <p>
-                    •
-                    <strong>Compromiso:</strong>
-                    Cumple con tu reserva o cancelala con anticipación
-                  </p>
-                  <p>
-                    •
-                    <strong>Consideración:</strong>
-                    Otros usuarios también quieren ese horario
-                  </p>
-                </div>
-              </div>
-            </div>
+  <!-- Paso 5: Datos del usuario -->
+  @if (selectedStartTime()) {
+  <section class="bg-white rounded-lg border border-gray-200 p-4 sm:p-6 shadow-sm motion-preset-slide-down">
+    <header class="flex items-center gap-2 mb-3 sm:mb-4">
+      <div class="p-2 bg-gray-50 rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-circle-check w-4 h-4 sm:w-5 sm:h-5 text-primary">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="m9 12 2 2 4-4"></path>
+        </svg>
+      </div>
+      <div>
+        <h2 class="text-base sm:text-lg font-semibold text-black">
+          Paso 5: Confirma tu reserva
+        </h2>
+        <p class="text-xs sm:text-sm text-gray-600">
+          Solo faltan tus datos para completar la reserva
+        </p>
+      </div>
+    </header>
+    <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="customerName">
+            Nombre completo
+          </label>
+          <input formControlName="customerName" type="text" required placeholder="Ej: Juan Pérez"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-black" />
+          @if (reservationForm.get('customerName')?.invalid && reservationForm.get('customerName')?.touched) {
+          <div class="text-red-500 text-xs mt-1">
+            Ingresa un nombre válido
           </div>
-        }
-      </main>
-    }
-    <footer class="bg-gray-50 border-t border-gray-200 py-6">
-      <div class="max-w-4xl mx-auto px-3 sm:px-4 text-center">
-        <div class="flex flex-col items-center gap-3">
-          <div>
-            <h3 class="font-medium text-gray-800 mb-2 text-sm sm:text-base">
-              ¿Ya tienes una reserva y deseas cancelarla?
-            </h3>
-            <p class="text-xs sm:text-sm text-gray-600">
-              <a class="text-primary font-medium underline" routerLink="/reserva">
-                Cancelala desde acá
-              </a>
-            </p>
-            <p class="text-xs text-gray-500 mt-1">
-              Liberá tu espacio para que otros puedan aprovecharlo
-            </p>
+          }
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="cellphone">
+            Número de celular
+          </label>
+          <input formControlName="cellphone" type="number" inputmode="numeric" maxlength="10"
+            placeholder="Ej: 3109328434"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-black" />
+          @if (
+          reservationForm.get('cellphone')?.invalid &&
+          reservationForm.get('cellphone')?.touched
+          ) {
+          <div class="text-red-500 text-xs mt-1">
+            Ingresa un celular válido de 10 dígitos
           </div>
+          }
         </div>
       </div>
-    </footer>
+      <div class="mt-6">
+        <button type="submit"
+          class="px-6 py-3 bg-primary hover:bg-primary/90 text-white disabled:opacity-50 w-full text-base font-medium rounded-lg transition-colors duration-300">
+          @if (loadingCreateReservation()) {
+          <app-loading-text-component [text]="'Creando reserva'" />
+          } @else {
+          Confirmar reserva
+          }
+        </button>
+      </div>
+    </form>
+  </section>
+  }
+
+  @if (selectedStartTime()) {
+  <div class="bg-yellow-50 border border-gray-200 rounded-lg p-3 sm:p-4">
+    <div class="flex items-start gap-3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-triangle-alert w-4 h-4 sm:w-5 sm:h-5 text-black flex-shrink-0 mt-0.5">
+        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path>
+        <path d="M12 9v4"></path>
+        <path d="M12 17h.01"></path>
+      </svg>
+      <div>
+        <h3 class="font-medium text-black mb-1 text-sm sm:text-base">
+          Importante sobre tu reserva
+        </h3>
+        <div class="space-y-1 text-xs sm:text-sm text-gray-700">
+          <p>
+            •
+            <strong>Puntualidad:</strong>
+            Llegá a tiempo para aprovechar tu reserva completa
+          </p>
+          <p>
+            •
+            <strong>Compromiso:</strong>
+            Cumple con tu reserva o cancelala con anticipación
+          </p>
+          <p>
+            •
+            <strong>Consideración:</strong>
+            Otros usuarios también quieren ese horario
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</main>
+}
+<footer class="bg-gray-50 border-t border-gray-200 py-6">
+  <div class="max-w-4xl mx-auto px-3 sm:px-4 text-center">
+    <div class="flex flex-col items-center gap-3">
+      <div>
+        <h3 class="font-medium text-gray-800 mb-2 text-sm sm:text-base">
+          ¿Ya tienes una reserva y deseas cancelarla?
+        </h3>
+        <p class="text-xs sm:text-sm text-gray-600">
+          <a class="text-primary font-medium underline" routerLink="/reserva">
+            Cancelala desde acá
+          </a>
+        </p>
+        <p class="text-xs text-gray-500 mt-1">
+          Liberá tu espacio para que otros puedan aprovecharlo
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

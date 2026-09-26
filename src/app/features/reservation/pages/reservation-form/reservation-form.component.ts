@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ErrorResponse } from '@core/interfaces/error-response';
 import { AlertService } from '@core/services/alert.service';
-import { Field } from '@features/field/interfaces/field';
+import { PublicField } from '@features/field/interfaces/field';
 import { FieldService } from '@features/field/services/field.service';
 import {
   Reservation,
@@ -59,18 +59,18 @@ export class ReservationFormComponent implements OnInit {
   loading = signal<boolean>(false);
   loadingHours = signal<boolean>(false);
   loadingCreateReservation = signal<boolean>(false);
-  selectedDate: Date | null = null;
-  selectedDurationEnum: ReservationDuration | null = null;
-  selectedMinutes: number | null = null;
-  selectedStartTime: string | null = null;
-  selectedField: Field | null = null;
+  selectedDate = signal<Date | null>(null);
+  selectedDurationEnum = signal<ReservationDuration | null>(null);
+  selectedMinutes = signal<number | null>(null);
+  selectedStartTime = signal<string | null>(null);
+  selectedField = signal<PublicField | null>(null);
   next20Days: DayItem[] = [];
   availableRanges: TimeSlot[] = [];
-  availableStartTimes: string[] = [];
+  availableStartTimes = signal<string[]>([]);
   reservationForm!: FormGroup;
   successReservation = false;
   reservationData!: Reservation;
-  fields: Field[] = [];
+  fields = signal<PublicField[]>([]);
 
   durations = [
     { enum: ReservationDuration.MIN_60, minutes: 60, label: '1 hora' },
@@ -117,44 +117,44 @@ export class ReservationFormComponent implements OnInit {
   }
 
   selectDate(day: DayItem) {
-    this.selectedDate = day.date;
-    this.selectedStartTime = null;
-    this.selectedMinutes = null;
-    this.selectedField = null;
-    this.selectedDurationEnum = null;
+    this.selectedDate.set(day.date);
+    this.selectedStartTime.set(null);
+    this.selectedMinutes.set(null);
+    this.selectedField.set(null);
+    this.selectedDurationEnum.set(null);
     this.reservationForm.reset();
   }
 
-  selectField(field: Field) {
-    this.selectedField = field;
-    this.selectedStartTime = null;
-    this.selectedMinutes = null;
-    this.selectedDurationEnum = null;
+  selectField(field: PublicField) {
+    this.selectedField.set(field);
+    this.selectedStartTime.set(null);
+    this.selectedMinutes.set(null);
+    this.selectedDurationEnum.set(null);
     this.reservationForm.reset();
   }
 
   selectDuration(minutes: number) {
-    this.selectedMinutes = minutes;
-    this.selectedStartTime = null;
+    this.selectedMinutes.set(minutes);
+    this.selectedStartTime.set(null);
     this.reservationForm.reset();
   }
 
   getAvailableHours(minutes: number, enumValue: ReservationDuration) {
-    this.selectedMinutes = minutes;
-    this.selectedDurationEnum = enumValue;
+    this.selectedMinutes.set(minutes);
+    this.selectedDurationEnum.set(enumValue);
 
     this.reservationForm.reset();
-    this.selectedStartTime = null;
+    this.selectedStartTime.set(null);
 
     this.loadingHours.set(true);
 
-    if (!this.selectedDate || !this.selectedField) return;
+    if (!this.selectedDate() || !this.selectedField()) return;
 
     this.reservationService
       .getAvailableHours(
         this.venue.id,
-        this.selectedField.id,
-        this.formatDateLocal(this.selectedDate!)
+        this.selectedField()!.id,
+        this.formatDateLocal(this.selectedDate()!)
       )
       .subscribe(ranges => {
         this.loadingHours.set(false);
@@ -164,26 +164,26 @@ export class ReservationFormComponent implements OnInit {
   }
 
   generateStartTimes() {
-    if (!this.availableRanges.length || !this.selectedMinutes) {
-      this.availableStartTimes = [];
+    if (!this.availableRanges.length || !this.selectedMinutes()) {
+      this.availableStartTimes.set([]);
       return;
     }
 
-    const minutes = this.selectedMinutes;
+    const minutes = this.selectedMinutes();
     const step = 30; // intervalos de 30 min
     const slots: string[] = [];
 
     const now = new Date();
     const isToday =
-      this.selectedDate &&
-      now.toISOString().split('T')[0] === this.selectedDate.toISOString().split('T')[0];
+      this.selectedDate() &&
+      now.toISOString().split('T')[0] === this.selectedDate()!.toISOString().split('T')[0];
 
     this.availableRanges.forEach(r => {
       const startTime = this.parseTime(r.start);
       const endTime = this.parseTime(r.end);
 
       let current = new Date(startTime);
-      const durationMs = minutes * 60 * 1000;
+      const durationMs = minutes! * 60 * 1000;
 
       while (current.getTime() + durationMs <= endTime.getTime()) {
         if (!isToday || current.getTime() >= now.getTime()) {
@@ -194,7 +194,7 @@ export class ReservationFormComponent implements OnInit {
       }
     });
 
-    this.availableStartTimes = slots;
+    this.availableStartTimes.set(slots);
   }
 
   private formatDateLocal(date: Date): string {
@@ -230,7 +230,7 @@ export class ReservationFormComponent implements OnInit {
     if (!this.venue) return;
     this.fieldService.getFieldsByVenueId(venueId).subscribe({
       next: fields => {
-        this.fields = fields;
+        this.fields.set(fields);
       },
       error: (err: ErrorResponse) => {
         this.alertService.error(
@@ -252,10 +252,10 @@ export class ReservationFormComponent implements OnInit {
     const payload: ReservationRequest = {
       customerName: this.reservationForm.value.customerName,
       cellphone: this.reservationForm.value.cellphone,
-      fieldId: this.selectedField!.id,
-      reservationDate: this.formatDateLocal(this.selectedDate!),
-      startTime: this.selectedStartTime!,
-      duration: this.selectedDurationEnum!
+      fieldId: this.selectedField()!.id,
+      reservationDate: this.formatDateLocal(this.selectedDate()!),
+      startTime: this.selectedStartTime()!,
+      duration: this.selectedDurationEnum()!
     };
 
     this.reservationService.createReservation(payload).subscribe({

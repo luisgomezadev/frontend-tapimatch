@@ -7,6 +7,13 @@ export interface Field {
   active: boolean;
 }
 
+export interface PublicField {
+  id: number;
+  name: string;
+  fieldType: FieldType;
+  hourlyRate: number;
+}
+
 export interface FieldRequest {
   venueId: number;
   name: string;

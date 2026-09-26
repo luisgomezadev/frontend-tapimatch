@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "PlayMatch-Front": {
+    "TapiMatch-Front": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -71,10 +71,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "PlayMatch-Front:build:production"
+              "buildTarget": "TapiMatch-Front:build:production"
             },
             "development": {
-              "buildTarget": "PlayMatch-Front:build:development"
+              "buildTarget": "TapiMatch-Front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n",
           "options": {
-            "buildTarget": "PlayMatch-Front:build"
+            "buildTarget": "TapiMatch-Front:build"
           }
         },
         "test": {

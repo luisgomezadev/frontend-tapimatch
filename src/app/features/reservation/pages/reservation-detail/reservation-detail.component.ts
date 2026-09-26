@@ -7,6 +7,7 @@ import { CustomDatePipe } from '@shared/pipes/custom-date.pipe';
 import { TimeFormatPipe } from '@shared/pipes/time-format.pipe';
 import { Router, RouterLink } from '@angular/router';
 import { LoadingTextComponent } from '@shared/components/loading-text/loading-text.component';
+import { ErrorResponse } from '@core/interfaces/error-response';
 
 @Component({
   selector: 'app-reservation-detail',
@@ -37,8 +38,8 @@ export class ReservationDetailComponent {
         }
         this.reservationData = data;
       },
-      error: () => {
-        this.alertService.error('Error', 'Ocurrió un error al buscar la reserva');
+      error: (err: ErrorResponse) => {
+        this.alertService.notify('', err.error.message || 'Ocurrió un error al buscar la reserva');
       },
       complete: () => this.loading.set(false)
     });

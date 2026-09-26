@@ -13,7 +13,7 @@ import { ErrorResponse } from '@core/interfaces/error-response';
 import { AlertService } from '@core/services/alert.service';
 import { AuthService } from '@core/services/auth.service';
 import { ScrollService } from '@core/services/scroll.service';
-import { Field } from '@features/field/interfaces/field';
+import { PublicField } from '@features/field/interfaces/field';
 import { FieldService } from '@features/field/services/field.service';
 import { Status, Venue, VenueRequest } from '@features/venue/interfaces/venue';
 import { VenueService } from '@features/venue/services/venue.service';
@@ -50,7 +50,7 @@ export class VenueComponent implements OnInit {
   venueForm!: FormGroup;
   loading = signal<boolean>(false);
   venueData = signal<Venue | null>(null);
-  fieldsData = signal<Field[]>([]);
+  fieldsData = signal<PublicField[]>([]);
 
   statusTypes = Object.values(Status);
 

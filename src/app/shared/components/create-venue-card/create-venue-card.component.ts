@@ -36,7 +36,7 @@ import { ButtonComponent } from '../button/button.component';
               <p class="mt-2 max-w-xl text-sm text-gray-500">
                 Aún no tienes complejo deportivo registrado. Crea tu complejo deportivo y añade las
                 canchas para que los usuarios puedan reservar en línea y comenzar a gestionar tus
-                reservas desde PlayMatch.
+                reservas desde TapiMatch.
               </p>
             </div>
           </div>

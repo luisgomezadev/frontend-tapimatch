@@ -4,11 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#3AAA35',
-        secondary: '#0B2545',
+        primary: '#227749',
+        secondary: '#1C272D',
         accent: '#111827',
         background: '#F5F7FA',
-        'hover-primary': '#2D9600',
+        'hover-primary': '#0DB26D',
         'hover-secondary': '#081C35'
       },
       keyframes: {

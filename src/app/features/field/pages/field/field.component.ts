@@ -86,7 +86,7 @@ export class FieldComponent implements OnInit {
           this.loading.set(false);
           if (venue) {
             this.venueId.set(venue.id);
-            this.getFields(this.venueId());
+            this.getFields();
           }
         },
         error: (err: ErrorResponse) => {
@@ -99,10 +99,9 @@ export class FieldComponent implements OnInit {
       });
   }
 
-  private getFields(venueId: number | null): void {
-    if (!venueId) return;
+  private getFields(): void {
 
-    this.fieldService.getAllFieldsByVenueId(venueId).subscribe({
+    this.fieldService.getAllFieldsByVenueId().subscribe({
       error: (err: ErrorResponse) => {
         this.alertService.error(
           'Error al obtener canchas',

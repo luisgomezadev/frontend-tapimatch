@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { FieldTypeToPlayersPipe } from '@shared/pipes/fieldTypeToPlayers.pipe';
 import { FieldService } from '@features/field/services/field.service';
-import { Field } from '@features/field/interfaces/field';
+import { PublicField } from '@features/field/interfaces/field';
 import { AlertService } from '@core/services/alert.service';
 import { ErrorResponse } from '@core/interfaces/error-response';
 import { FieldCardSkeletonComponent } from '@features/field/components/field-card-skeleton/field-card-skeleton.component';
@@ -26,7 +26,7 @@ export class VenueCardComponent {
 
   @Input() venue!: Venue;
 
-  fields = signal([] as Field[]);
+  fields = signal([] as PublicField[]);
 
   loadingFields = signal(false);
 
