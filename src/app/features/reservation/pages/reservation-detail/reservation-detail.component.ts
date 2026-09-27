@@ -39,7 +39,7 @@ export class ReservationDetailComponent {
         this.reservationData = data;
       },
       error: (err: ErrorResponse) => {
-        this.alertService.notify('', err.error.message || 'Ocurrió un error al buscar la reserva');
+        this.alertService.error('Error al buscar reserva', err.error.message || 'Ocurrió un error al buscar la reserva');
       },
       complete: () => this.loading.set(false)
     });

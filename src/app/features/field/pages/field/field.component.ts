@@ -133,10 +133,8 @@ export class FieldComponent implements OnInit {
     if (fieldId) {
       this.fieldService.updateField(fieldRequest, fieldId).subscribe({
         next: (res: Field) => {
-          this.alertService.success(
-            'Cancha actualizada',
-            'La información de ' + res.name + ' ha sido actualizada.'
-          );
+          const message = 'La cancha ' + res.name + ' ha sido actualizada exitosamente.';
+          this.alertService.success('Cancha actualizada', message);
           this.resetFieldForm();
         },
         error: (err: ErrorResponse) => {
@@ -149,10 +147,8 @@ export class FieldComponent implements OnInit {
     } else {
       this.fieldService.createField(fieldRequest).subscribe({
         next: res => {
-          this.alertService.success(
-            'Cancha registrada',
-            res.name + ' ha sido creada exitosamente.'
-          );
+          const message = 'La cancha ' + res.name + ' ha sido creada exitosamente.';
+          this.alertService.success('Cancha registrada', message);
           this.resetFieldForm();
         },
         error: (err: ErrorResponse) => {

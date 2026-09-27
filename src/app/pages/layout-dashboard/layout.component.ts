@@ -34,6 +34,12 @@ export class LayoutComponent implements OnInit {
       if (typeof email === 'string') {
         this.userService.getCurrentUser().subscribe({
           next: (user: User) => {
+            if (!user) {
+              this.loading.set(false);
+              this.alertService.error('Error', 'No se pudo obtener la información del usuario.');
+              this.authService.logout();
+              return;
+            }
             this.userActive = user;
             this.authService.setUser(user);
             this.loadLinks();
