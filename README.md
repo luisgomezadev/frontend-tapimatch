@@ -52,7 +52,7 @@ ng serve
 
 ## 🌐 Demo en producción
 
-Puedes ver la aplicación desplegada aquí: [TapiMatch](https://projectplaymatch.vercel.app)
+Puedes ver la aplicación desplegada aquí: [TapiMatch](https://tapimatch.vercel.app)
 
 ---
 
