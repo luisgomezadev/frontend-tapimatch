@@ -71,6 +71,6 @@ export class VenueCardComponent {
       return;
     }
     this.onClosed();
-    this.router.navigate(['/reserva/' + this.venue.code]);
+    this.router.navigate(['/r/' + this.venue.code]);
   }
 }

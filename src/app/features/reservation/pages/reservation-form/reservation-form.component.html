@@ -93,7 +93,7 @@
         class="flex overflow-x-auto gap-3 pb-2 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-neutral-700/10 [&::-webkit-scrollbar-thumb]:bg-neutral-500 [&::-webkit-scrollbar-thumb]:rounded-full">
         @for (day of next20Days; track $index) {
         <button (click)="selectDate(day)"
-          class="flex flex-col items-center p-3 sm:p-6 rounded-lg border transition-all min-w-36 select-none" [ngClass]="
+          class="flex flex-col items-center p-2 sm:p-6 rounded-lg border transition-all min-w-28 md:min-w-36 select-none" [ngClass]="
                 selectedDate()?.getTime() === day.date.getTime()
                   ? 'bg-primary text-gray-200 border-primary'
                   : 'bg-gray-100 text-gray-700 border-gray-500 hover:bg-primary/10 hover:border-primary hover:text-gray-800'

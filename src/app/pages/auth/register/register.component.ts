@@ -11,7 +11,6 @@ import { ErrorResponse } from '@core/interfaces/error-response';
 import { AlertService } from '@core/services/alert.service';
 import { AuthService } from '@core/services/auth.service';
 import { ButtonComponent } from '@shared/components/button/button.component';
-import { FooterComponent } from '@shared/components/footer/footer.component';
 import { LoadingTextComponent } from '@shared/components/loading-text/loading-text.component';
 import { NavbarComponent } from '@shared/components/navbar/navbar.component';
 import { REGEX_PATTERNS } from '@shared/utils/regex-utils';
@@ -24,7 +23,6 @@ import { REGEX_PATTERNS } from '@shared/utils/regex-utils';
     RouterModule,
     NavbarComponent,
     LoadingTextComponent,
-    FooterComponent,
     ButtonComponent
   ],
   templateUrl: './register.component.html',

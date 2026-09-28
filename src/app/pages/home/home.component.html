@@ -1,5 +1,5 @@
 <app-navbar />
-<section class="relative overflow-hidden bg-white">
+<section class="relative overflow-hidden bg-gray-200/40">
 
   <div class="absolute inset-0">
     <div
@@ -45,23 +45,19 @@
       </p>
 
       <div
-        class="mt-12 flex flex-col sm:flex-row justify-center gap-4">
+        class="mt-12 flex justify-center gap-4">
 
         <app-button
           (clicked)="goToRegister()"
           size="big">
-
           Empieza gratis
-
         </app-button>
 
         <app-button
-          color="secondary"
+          color="white"
           size="big"
           (clicked)="goToReservationDetail()">
-
           Consultar reserva
-
         </app-button>
 
       </div>
@@ -75,7 +71,7 @@
   <div class="max-w-6xl mx-auto px-6">
 
     <div class="text-center mb-16">
-      <span class="text-primary font-semibold uppercase tracking-widest text-sm">
+      <span class="text-primary font-semibold uppercase tracking-wider md:tracking-widest text-xs md:text-sm">
         Características
       </span>
 
@@ -197,6 +193,81 @@
     </div>
 
   </div>
+</section>
+<section class="relative overflow-hidden bg-primary">
+
+  <!-- Blobs decorativos, mismo patrón que el hero -->
+  <div class="absolute inset-0">
+    <div
+      class="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-white/10 blur-3xl">
+    </div>
+
+    <div
+      class="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-secondary/20 blur-3xl">
+    </div>
+  </div>
+
+  <div
+    class="relative max-w-5xl mx-auto px-6 py-24 flex flex-col items-center text-center">
+
+    <span
+      class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white">
+
+      <svg xmlns="http://www.w3.org/2000/svg"
+           fill="none"
+           viewBox="0 0 24 24"
+           stroke-width="2"
+           stroke="currentColor"
+           class="w-4 h-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+
+      Empieza en minutos
+
+    </span>
+
+    <h2
+      class="mt-8 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+
+      ¿Listo para empezar a
+      <span class="text-secondary">
+        gestionar tus reservas?
+      </span>
+
+    </h2>
+
+    <p
+      class="mt-6 max-w-2xl text-base md:text-xl text-white/80 leading-relaxed">
+
+      Únete a los complejos deportivos que ya simplificaron su día a día.
+      Crea tu cuenta gratis y comparte tu enlace de reservas en minutos.
+
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+
+      <app-button
+        color="white"
+        size="big"
+        (clicked)="goToRegister()">
+        Crear cuenta gratis
+      </app-button>
+
+      <app-button
+        color="white"
+        size="big"
+        (clicked)="goToReservationDetail()">
+        Consultar reserva
+      </app-button>
+
+    </div>
+
+    <p class="mt-6 text-sm text-white/60">
+      No necesitas tarjeta de crédito. Cancela cuando quieras.
+    </p>
+
+  </div>
+
 </section>
 <app-footer />
 <app-popup />

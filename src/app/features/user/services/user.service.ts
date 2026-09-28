@@ -8,7 +8,7 @@ export class UserService extends BaseHttpService {
   private readonly ENDPOINT = this.apiUrl + '/user';
 
   getCurrentUser(): Observable<User> {
-    return this.http.get<User>(`${this.ENDPOINT}/me`);
+    return this.http.get<User>(`${this.ENDPOINT}/my-info`);
   }
 
   updateUser(user: User): Observable<User> {

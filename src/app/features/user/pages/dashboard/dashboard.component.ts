@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
   copySuccess = signal<boolean>(false);
   countReservations = signal<number>(0);
 
-  urlBase = environment.deploy + 'reserva/';
+  urlBase = environment.deploy + 'r/';
   link = '';
 
   ngOnInit(): void {

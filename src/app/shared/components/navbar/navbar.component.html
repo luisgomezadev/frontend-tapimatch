@@ -1,5 +1,10 @@
 <header
-  class="fixed inset-x-0 top-0 z-50 bg-white backdrop-blur-xl border-b border-gray-200 shadow-sm transition-all duration-300 py-3">
+  class="fixed inset-x-0 top-0 z-50 border-b duration-300 py-3"
+  [ngClass]="menuOpen
+    ? 'bg-white border-gray-200 shadow-sm'
+    : (isScrolled
+        ? 'md:bg-white/70 bg-white backdrop-blur-xl border-gray-200 shadow-sm'
+        : 'bg-transparent backdrop-blur-0 border-transparent shadow-none')">
 
   <div class="max-w-7xl mx-auto px-4 lg:px-6">
     <div class="flex items-center justify-between h-18">
@@ -21,14 +26,14 @@
         <a
           routerLink="/login"
           routerLinkActive="text-primary bg-gray-100"
-          class="px-5 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-primary transition-all duration-200">
+          class="px-5 py-2.5 rounded-lg text-sm font-medium text-neutral-700 hover:text-primary transition-all duration-200">
           Iniciar sesión
         </a>
 
         <a
           routerLink="/registro"
           routerLinkActive="text-primary bg-gray-100"
-          class="px-5 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-primary transition-all duration-200">
+          class="px-5 py-2.5 rounded-lg text-sm font-medium text-neutral-700 hover:text-primary transition-all duration-200">
           Crear cuenta
         </a>
 

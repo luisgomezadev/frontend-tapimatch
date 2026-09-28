@@ -33,7 +33,7 @@ export const routes: Routes = [
       )
   },
   {
-    path: 'reserva/:code',
+    path: 'r/:code',
     loadComponent: () =>
       import('./features/reservation/pages/reservation-form/reservation-form.component').then(
         m => m.ReservationFormComponent

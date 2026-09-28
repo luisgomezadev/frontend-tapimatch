@@ -1,40 +1,66 @@
-<footer class="bg-background border-t border-gray-200">
-  <div class="max-w-7xl mx-auto px-6 py-14">
+<footer class="bg-secondary border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-16">
 
-    <div class="flex flex-col items-center text-center">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
 
-      <div class="flex items-center gap-3 mb-5">
+      <!-- Columna: Marca -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left">
 
-        <img src="assets/logo_letras.webp" alt="TapiMatch" class="w-32 h-auto" />
+        <img src="assets/logo_letras.webp" alt="TapiMatch" class="w-32 h-auto brightness-0 invert mb-5" />
+
+        <p class="max-w-xs text-gray-400 leading-relaxed">
+          Gestiona las reservas de tu complejo deportivo de forma rápida, sencilla y profesional.
+        </p>
 
       </div>
 
-      <p class="max-w-md text-gray-600 leading-relaxed">
-        Gestiona las reservas de tu complejo deportivo de forma rápida, sencilla y profesional.
-      </p>
+      <!-- Columna: Enlaces -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left">
 
-      <div class="w-full border-t border-gray-200 mt-10 pt-6 flex flex-col items-center text-center">
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-5">
+          Navegación
+        </h3>
 
-        <p class="text-sm text-gray-500">
-          © {{ currentYear }} <span class="font-semibold text-gray-700">TapiMatch</span>.
-          Algunos derechos reservados.
-        </p>
+        <nav class="flex flex-col gap-3">
 
-        <p class="mt-2 text-sm text-gray-400">
-          Hecho por <a href="https://luisgomezdev.vercel.app/" target="_blank" class="text-primary hover:underline">Luis Gómez</a> para facilitar las reservas de canchas.
-        </p>
+          <a routerLink="/canchas" class="text-gray-400 hover:text-primary transition-colors">
+            Ver canchas
+          </a>
 
-        <div class="flex items-center gap-4 mt-8">
+          <a routerLink="/reserva" class="text-gray-400 hover:text-primary transition-colors">
+            Consultar reserva
+          </a>
+
+          <a routerLink="/login" class="text-gray-400 hover:text-primary transition-colors">
+            Iniciar sesión
+          </a>
+
+          <a routerLink="/registro" class="text-gray-400 hover:text-primary transition-colors">
+            Crear cuenta
+          </a>
+
+        </nav>
+
+      </div>
+
+      <!-- Columna: Social -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left">
+
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-5">
+          Síguenos
+        </h3>
+
+        <div class="flex items-center gap-4">
 
           <a href="https://github.com/luisgomezadev" target="_blank"
-            class="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center hover:border-primary hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1">
+            class="w-11 h-11 rounded-full border border-white/15 flex items-center justify-center text-gray-300 hover:border-primary hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1">
 
             <i class="fa-brands fa-github text-lg"></i>
 
           </a>
 
           <a href="https://www.linkedin.com/in/luisgomezdev/" target="_blank"
-            class="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center hover:border-primary hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1">
+            class="w-11 h-11 rounded-full border border-white/15 flex items-center justify-center text-gray-300 hover:border-primary hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1">
 
             <i class="fa-brands fa-linkedin-in text-lg"></i>
 
@@ -43,6 +69,20 @@
         </div>
 
       </div>
+
+    </div>
+
+    <!-- Divisor + copyright -->
+    <div class="w-full border-t border-white/10 mt-14 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
+
+      <p class="text-sm text-gray-500">
+        © {{ currentYear }} <span class="font-semibold text-gray-300">TapiMatch</span>.
+        Algunos derechos reservados.
+      </p>
+
+      <p class="text-sm text-gray-500">
+        Hecho por <a href="https://luisgomezdev.vercel.app/" target="_blank" class="text-primary hover:underline">Luis Gómez</a> para facilitar las reservas de canchas.
+      </p>
 
     </div>
 

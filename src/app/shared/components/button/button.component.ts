@@ -35,7 +35,7 @@ export class ButtonComponent {
     let base =
       'w-full inline-flex items-center justify-center gap-2 hover:shadow-md transform transition-all duration-300 disabled:opacity-60 disabled:hover:shadow-none disabled:cursor-not-allowed';
 
-    if (this.size === 'big') base += ' py-4 px-6 sm:px-10 font-semibold text-lg rounded-lg';
+    if (this.size === 'big') base += ' py-3 md:py-4 px-5 sm:px-10 font-semibold text-base md:text-lg rounded-lg';
     else base += ' px-4 py-2 font-medium rounded-lg';
 
     if (this.color === 'primary') {
@@ -45,7 +45,7 @@ export class ButtonComponent {
     if (this.color === 'white') {
       return (
         base +
-        ' bg-white/90 text-black hover:bg-hover-white/90'
+        ' bg-white/90 text-black hover:bg-hover-white/90 border border-gray-300 hover:border-gray-400 disabled:hover:bg-white/90 disabled:hover:border-gray-300'
       );
     }
 
